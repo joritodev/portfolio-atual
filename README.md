@@ -1,100 +1,71 @@
-# Personal Portfolio
+# Portfolio Pessoal
 
-This repository contains a beautiful, responsive personal portfolio built using **React**, **Vite**, and **TailwindCSS**. The project showcases modern web development techniques including smooth animations, responsive layouts, and interactive UI components.
+## 🚀 Tecnologias
 
-### Want to watch this?
-[![Check this out](https://img.youtube.com/vi/LGdPMf-SgBA/maxresdefault.jpg)](https://youtu.be/LGdPMf-SgBA)
+- React 18
+- Vite
+- TailwindCSS
+- EmailJS
+- ESLint
 
+## 📦 Estrutura do Projeto
 
-## Features
+```
+src/
+├── components/     # Componentes React reutilizáveis
+├── App.jsx        # Componente principal da aplicação
+├── main.jsx       # Ponto de entrada da aplicação
+└── index.css      # Estilos globais
+```
 
-- **Modern Design:** Clean, SaaS-inspired design with a glass-effect navbar and sleek animations.
-- **Responsive Layout:** Fully responsive across desktop, tablet, and mobile devices.
-- **Interactive Components:** Animated sections and a mobile-friendly hamburger menu with smooth transitions.
-- **Optimized Performance:** Fast development build using Vite with TailwindCSS for efficient styling.
+## 🛠️ Configuração do Ambiente
 
-## Technologies
-
-- **React:** Component-based UI library.
-- **Vite:** Fast and lean development build tool.
-- **TailwindCSS:** Utility-first CSS framework.
-- **JavaScript (ES6+):** Modern JavaScript features and best practices.
-
-## Installation
-
-1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/your-username/your-portfolio.git
-   cd your-portfolio
-   ```
-
-2. **Install dependencies:**
-
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server:**
-
-   ```bash
-   npm run dev
-   ```
-
-   The application should now be running at [http://localhost:5173](http://localhost:5173).
-
-## Build
-
-To create a production build, run:
-
+1. Clone o repositório
+2. Instale as dependências:
 ```bash
-npm run build
+npm install
 ```
 
-Then, you can preview the production build with:
+## 🚀 Scripts Disponíveis
 
-```bash
-npm run preview
-```
+- `npm run dev` - Inicia o servidor de desenvolvimento
+- `npm run build` - Gera a build de produção
+- `npm run preview` - Visualiza a build de produção localmente
+- `npm run lint` - Executa o linter
+- `npm run deploy` - Faz deploy para o GitHub Pages
 
-## Folder Structure
+## 🔧 Arquitetura
 
-```
-your-portfolio/
-├── public/
-│   └── index.html
-├── src/
-│   ├── components/
-│   │   ├── Navbar.jsx
-│   │   ├── MobileMenu.jsx
-│   │   ├── LoadingScreen.jsx
-│   │   └── sections/
-│   │       ├── Home.jsx
-│   │       ├── About.jsx
-│   │       ├── Projects.jsx
-│   │       └── Contact.jsx
-│   ├── index.css          # Tailwind base styles and global styles
-│   ├── App.jsx
-│   └── main.jsx
-├── package.json
-├── vite.config.js
-└── README.md
-```
+O projeto é construído com React e utiliza Vite como bundler. A estrutura é organizada da seguinte forma:
 
-## Customization
+- **Componentes**: Localizados em `src/components/`, seguem uma arquitetura modular
+- **Estilização**: Utiliza TailwindCSS para estilos
+- **Internacionalização**: Implementada através do LanguageContext
+- **Formulário de Contato**: Integrado com EmailJS para envio de emails
 
-- **Tailwind CSS:** Modify the `index.css` file or add custom classes to further tweak the design.
-- **Components:** Edit individual components in the `src/components/` folder to update content or styling.
-- **Sections:** Update content in the `src/components/sections/` directory to showcase your personal projects, about info, and contact details.
+## 🌐 Deploy
 
-## Contributing
+O projeto está configurado para deploy automático no GitHub Pages através do pacote `gh-pages`.
 
-Contributions are welcome! Please open an issue or submit a pull request with improvements.
+## 🔍 Linting e Formatação
 
-## License
+- ESLint configurado com regras específicas para React
+- Plugins incluídos:
+  - eslint-plugin-react
+  - eslint-plugin-react-hooks
+  - eslint-plugin-react-refresh
 
-This project is open source and available under the [MIT License](LICENSE).
+## 📝 Notas de Desenvolvimento
 
----
+- O projeto utiliza React 18 com Strict Mode ativado
+- Implementa Context API para gerenciamento de estado global
+- Otimizado para performance com Vite
+- Responsivo e acessível por padrão
 
-Happy coding and enjoy building your professional portfolio!
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Por favor, abra uma issue ou envie um pull request com melhorias.
+
+## 📄 Licença
+
+Este projeto é open source e está disponível sob a [Licença MIT](LICENSE).
