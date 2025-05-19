@@ -38,10 +38,60 @@ npm install
 
 O projeto é construído com React e utiliza Vite como bundler. A estrutura é organizada da seguinte forma:
 
-- **Componentes**: Localizados em `src/components/`, seguem uma arquitetura modular
-- **Estilização**: Utiliza TailwindCSS para estilos
-- **Internacionalização**: Implementada através do LanguageContext
-- **Formulário de Contato**: Integrado com EmailJS para envio de emails
+### Estrutura de Componentes
+```
+src/
+├── components/
+│   ├── sections/           # Seções principais do portfólio
+│   │   ├── Home.jsx       # Página inicial com apresentação
+│   │   ├── About.jsx      # Seção sobre mim
+│   │   ├── Projects.jsx   # Portfólio de projetos
+│   │   └── Contact.jsx    # Formulário de contato
+│   ├── Navbar.jsx         # Barra de navegação responsiva
+│   ├── MobileMenu.jsx     # Menu mobile com animações
+│   ├── LoadingScreen.jsx  # Tela de carregamento inicial
+│   ├── RevealOnScroll.jsx # Componente de animação no scroll
+│   └── LanguageContext.jsx # Gerenciamento de idiomas
+```
+
+### Padrões e Tecnologias
+
+- **Gerenciamento de Estado**:
+  - Context API para internacionalização
+  - Props para comunicação entre componentes
+  - Hooks personalizados para lógica reutilizável
+
+- **Estilização**:
+  - TailwindCSS para estilos utilitários
+  - Animações com CSS transitions
+  - Design responsivo com breakpoints personalizados
+
+- **Performance**:
+  - Lazy loading de componentes
+  - Otimização de imagens
+  - Code splitting com Vite
+
+- **Integrações**:
+  - EmailJS para formulário de contato
+  - GitHub Pages para deploy
+  - ESLint para qualidade de código
+
+### Fluxo de Dados
+
+1. **Inicialização**:
+   - Carregamento do `main.jsx`
+   - Configuração do `LanguageProvider`
+   - Renderização do `App.jsx`
+
+2. **Navegação**:
+   - Sistema de rolagem suave
+   - Menu mobile com animações
+   - Transições entre seções
+
+3. **Interatividade**:
+   - Animações no scroll
+   - Formulário de contato com validação
+   - Troca de idiomas em tempo real
 
 ## 🌐 Deploy
 
