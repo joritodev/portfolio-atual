@@ -10,6 +10,7 @@ export const Contact = () => {
     email: "",
     message: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const texts = {
     pt: {
@@ -18,6 +19,7 @@ export const Contact = () => {
       email: "exemplo@gmail.com",
       message: "Sua Mensagem...",
       send: "Enviar Mensagem",
+      sending: "Enviando...",
       sent: "Mensagem enviada!",
       error: "Ops! Algo deu errado. Por favor, tente novamente."
     },
@@ -27,26 +29,41 @@ export const Contact = () => {
       email: "example@gmail.com",
       message: "Your Message...",
       send: "Send Message",
+      sending: "Sending...",
       sent: "Message Sent!",
       error: "Oops! Something went wrong. Please try again."
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
-    emailjs
-      .sendForm(
+    try {
+      // Verificar se as variáveis de ambiente estão definidas
+      if (!import.meta.env.VITE_SERVICE_ID || !import.meta.env.VITE_TEMPLATE_ID || !import.meta.env.VITE_PUBLIC_KEY) {
+        throw new Error("EmailJS configuration is missing");
+      }
+
+      const result = await emailjs.sendForm(
         import.meta.env.VITE_SERVICE_ID,
         import.meta.env.VITE_TEMPLATE_ID,
         e.target,
         import.meta.env.VITE_PUBLIC_KEY
-      )
-      .then((result) => {
+      );
+
+      if (result.status === 200) {
         alert(texts[language].sent);
         setFormData({ name: "", email: "", message: "" });
-      })
-      .catch(() => alert(texts[language].error));
+      } else {
+        throw new Error("Email sending failed");
+      }
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      alert(texts[language].error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -72,6 +89,7 @@ export const Contact = () => {
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
                 }
+                disabled={isLoading}
               />
             </div>
 
@@ -87,6 +105,7 @@ export const Contact = () => {
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
                 }
+                disabled={isLoading}
               />
             </div>
 
@@ -102,14 +121,16 @@ export const Contact = () => {
                 onChange={(e) =>
                   setFormData({ ...formData, message: e.target.value })
                 }
+                disabled={isLoading}
               />
             </div>
 
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white py-3 px-6 rounded font-medium transition relative overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
+              disabled={isLoading}
+              className="w-full bg-blue-500 text-white py-3 px-6 rounded font-medium transition relative overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)] disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {texts[language].send}
+              {isLoading ? texts[language].sending : texts[language].send}
             </button>
           </form>
         </div>
