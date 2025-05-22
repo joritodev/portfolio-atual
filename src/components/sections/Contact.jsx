@@ -40,16 +40,44 @@ export const Contact = () => {
     setIsLoading(true);
 
     try {
-      if (!import.meta.env.VITE_SERVICE_ID || !import.meta.env.VITE_TEMPLATE_ID || !import.meta.env.VITE_PUBLIC_KEY) {
+      const serviceId = "service_0t0inn4";
+      const templateId = "template_cjefnik";
+      const publicKey = "sUcgXKTry16Tu62_C";
+
+      console.log("Tentando enviar email com as seguintes configurações:");
+      console.log("Service ID:", serviceId);
+      console.log("Template ID:", templateId);
+      console.log("Public Key:", publicKey);
+
+      if (!serviceId || !templateId || !publicKey) {
         throw new Error("EmailJS configuration is missing");
       }
 
+      // Verificar se o formulário está válido
+      const form = e.target;
+      if (!form.checkValidity()) {
+        throw new Error("Formulário inválido");
+      }
+
+      // Criar um objeto com os dados do formulário
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: "joritodev@gmail.com",
+        reply_to: formData.email
+      };
+
+      console.log("Dados do formulário:", templateParams);
+
       const result = await emailjs.sendForm(
-        import.meta.env.VITE_SERVICE_ID,
-        import.meta.env.VITE_TEMPLATE_ID,
-        e.target,
-        import.meta.env.VITE_PUBLIC_KEY
+        serviceId,
+        templateId,
+        form,
+        publicKey
       );
+
+      console.log("Resultado do envio:", result);
 
       if (result.status === 200) {
         alert(texts[language].sent);
@@ -58,7 +86,8 @@ export const Contact = () => {
         throw new Error("Email sending failed");
       }
     } catch (error) {
-      console.error("EmailJS Error:", error);
+      console.error("Erro detalhado:", error);
+      console.error("Stack trace:", error.stack);
       alert(texts[language].error);
     } finally {
       setIsLoading(false);
