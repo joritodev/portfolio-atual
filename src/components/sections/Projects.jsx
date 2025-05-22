@@ -7,10 +7,10 @@ export const Projects = () => {
     pt: {
       featured: "Projetos em Destaque",
       todo: "Lista de Tarefas",
-      todoDesc: "Criação de uma lista de tarefas com React, TypeScript, Sass e Next.js.",
+      todoDesc: "Desenvolvimento de uma aplicação web para gerenciamento de tarefas utilizando React.js e Next.js. Implementei funcionalidades de adição, conclusão e exclusão de tarefas com interface responsiva.",
       view: "Ver Projeto →",
       cardapio: "Cardápio de Restaurante",
-      cardapioDesc: "Criação de um cardápio de restaurante com React, TypeScript e Sass.",
+      cardapioDesc: "Projetodelistadeprodutos com carrinho de compras responsivo,desenvolvidoem React.Permitevisualizar produtos,adicionar/remover itensaocarrinhoecalcular ovalor total, com layoutadaptávelparadesktope mobile.",
       //ecommerce: "Aplicação Web de E-Commerce",
       //ecommerceDesc: "E-commerce full-stack com UI moderna, integração de pagamentos segura e inventário personalizável.",
       //chat: "App de Chat em Tempo Real",
