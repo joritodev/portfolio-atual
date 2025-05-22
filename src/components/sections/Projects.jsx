@@ -10,7 +10,7 @@ export const Projects = () => {
       todoDesc: "Desenvolvimento de uma aplicação web para gerenciamento de tarefas utilizando React.js e Next.js. Implementei funcionalidades de adição, conclusão e exclusão de tarefas com interface responsiva.",
       view: "Ver Projeto →",
       cardapio: "Cardápio de Restaurante",
-      cardapioDesc: "Projetodelistadeprodutos com carrinho de compras responsivo,desenvolvidoem React.Permitevisualizar produtos,adicionar/remover itensaocarrinhoecalcular ovalor total, com layoutadaptávelparadesktope mobile.",
+      cardapioDesc: "Projetodelistadeprodutos com carrinho de compras responsivo,desenvolvidoem React.Permitevisualizar produtos,adicionar/remover itens ao carrinho e calcular o valor total, com layout adaptável para desktope mobile.",
       //ecommerce: "Aplicação Web de E-Commerce",
       //ecommerceDesc: "E-commerce full-stack com UI moderna, integração de pagamentos segura e inventário personalizável.",
       //chat: "App de Chat em Tempo Real",
