@@ -40,7 +40,6 @@ export const Contact = () => {
     setIsLoading(true);
 
     try {
-      // Verificar se as variáveis de ambiente estão definidas
       if (!import.meta.env.VITE_SERVICE_ID || !import.meta.env.VITE_TEMPLATE_ID || !import.meta.env.VITE_PUBLIC_KEY) {
         throw new Error("EmailJS configuration is missing");
       }
