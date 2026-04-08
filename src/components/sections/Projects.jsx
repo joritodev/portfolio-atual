@@ -45,7 +45,7 @@ export const Projects = () => {
         "BPM Widget simulation for corporate processes. Built with Vanilla JavaScript and REST API integration, featuring financial compliance validations and automated data entry.",
       coffee: "Coffee Delivery",
       coffeeDesc:
-        "E-commerce de café completo com carrinho de compras e checkout. Desenvolvido em React com Context API para gerenciamento de estado global, styled-components para estilização e validação de formulários com React Hook Form.",
+        "Full-featured coffee e-commerce with shopping cart and checkout. Built with React, Context API for global state management, styled-components for styling, and form validation with React Hook Form.",
       //ecommerce: "E-Commerce Web App",
       //ecommerceDesc: "Full-stack e-commerce with modern UI, secure payment integration, and customizable product inventory.",
       //chat: "Real-Time Chat App",

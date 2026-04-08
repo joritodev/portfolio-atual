@@ -11,6 +11,7 @@ export const Contact = () => {
     message: "",
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState(/** @type {{ type: 'success' | 'error', message: string } | null} */ (null));
 
   const texts = {
     pt: {
@@ -38,37 +39,17 @@ export const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setStatus(null);
 
     try {
       const serviceId = "service_0t0inn4";
       const templateId = "template_cjefnik";
       const publicKey = "sUcgXKTry16Tu62_C";
 
-      console.log("Tentando enviar email com as seguintes configurações:");
-      console.log("Service ID:", serviceId);
-      console.log("Template ID:", templateId);
-      console.log("Public Key:", publicKey);
-
-      if (!serviceId || !templateId || !publicKey) {
-        throw new Error("EmailJS configuration is missing");
-      }
-
-      // Verificar se o formulário está válido
       const form = e.target;
       if (!form.checkValidity()) {
-        throw new Error("Formulário inválido");
+        throw new Error("Invalid form");
       }
-
-      // Criar um objeto com os dados do formulário
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        message: formData.message,
-        to_email: "joritodev@gmail.com",
-        reply_to: formData.email
-      };
-
-      console.log("Dados do formulário:", templateParams);
 
       const result = await emailjs.sendForm(
         serviceId,
@@ -77,18 +58,14 @@ export const Contact = () => {
         publicKey
       );
 
-      console.log("Resultado do envio:", result);
-
       if (result.status === 200) {
-        alert(texts[language].sent);
+        setStatus({ type: "success", message: texts[language].sent });
         setFormData({ name: "", email: "", message: "" });
       } else {
         throw new Error("Email sending failed");
       }
-    } catch (error) {
-      console.error("Erro detalhado:", error);
-      console.error("Stack trace:", error.stack);
-      alert(texts[language].error);
+    } catch {
+      setStatus({ type: "error", message: texts[language].error });
     } finally {
       setIsLoading(false);
     }
@@ -152,6 +129,19 @@ export const Contact = () => {
                 disabled={isLoading}
               />
             </div>
+
+            {status && (
+              <div
+                role="alert"
+                className={`px-4 py-3 rounded text-sm font-medium transition-all ${
+                  status.type === "success"
+                    ? "bg-green-500/10 border border-green-500/30 text-green-400"
+                    : "bg-red-500/10 border border-red-500/30 text-red-400"
+                }`}
+              >
+                {status.message}
+              </div>
+            )}
 
             <button
               type="submit"
