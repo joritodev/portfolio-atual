@@ -79,7 +79,7 @@ export const Contact = () => {
     >
       <RevealOnScroll>
         <div className="px-4 w-full min-w-[300px] md:w-[500px] sm:w-2/3 p-6">
-          <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center">
+          <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent text-center">
             {texts[language].title}
           </h2>
           <form className="space-y-6" onSubmit={handleSubmit}>
@@ -90,7 +90,7 @@ export const Contact = () => {
                 name="name"
                 required
                 value={formData.name}
-                className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
+                className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-800 focus:bg-blue-900/10"
                 placeholder={texts[language].name}
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
@@ -106,7 +106,7 @@ export const Contact = () => {
                 name="email"
                 required
                 value={formData.email}
-                className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
+                className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-800 focus:bg-blue-900/10"
                 placeholder={texts[language].email}
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
@@ -122,7 +122,7 @@ export const Contact = () => {
                 required
                 rows={5}
                 value={formData.message}
-                className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
+                className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-800 focus:bg-blue-900/10"
                 placeholder={texts[language].message}
                 onChange={(e) =>
                   setFormData({ ...formData, message: e.target.value })
@@ -149,7 +149,7 @@ export const Contact = () => {
               whileTap={{ scale: 0.98 }}
               type="submit"
               disabled={isLoading}
-              className="w-full bg-white text-black py-3 px-6 rounded-lg font-semibold transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:bg-gray-200 flex justify-center items-center disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-blue-900 text-blue-50 border border-blue-700 py-3 px-6 rounded-lg font-semibold transition-all shadow-[0_0_20px_rgba(30,58,138,0.2)] hover:shadow-[0_0_30px_rgba(30,58,138,0.4)] hover:bg-blue-800 flex justify-center items-center disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? texts[language].sending : texts[language].send}
             </motion.button>

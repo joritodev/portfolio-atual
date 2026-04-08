@@ -44,7 +44,7 @@ export const Home = () => {
       >
         <motion.h1 
           variants={itemVariants}
-          className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent leading-tight"
+          className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent leading-tight"
         >
           {texts[language].title}
         </motion.h1>
@@ -61,7 +61,7 @@ export const Home = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             href="#projects"
-            className="bg-white text-black py-3 px-6 rounded-lg font-semibold transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:bg-gray-200"
+            className="bg-blue-900 text-blue-50 border border-blue-700 py-3 px-6 rounded-lg font-semibold transition-all shadow-[0_0_20px_rgba(30,58,138,0.2)] hover:shadow-[0_0_30px_rgba(30,58,138,0.4)] hover:bg-blue-800"
           >
             {texts[language].projects}
           </motion.a>
@@ -70,7 +70,7 @@ export const Home = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             href="#contact"
-            className="border border-white/20 bg-transparent text-white py-3 px-6 rounded-lg font-semibold transition-all hover:bg-white/5"
+            className="border border-blue-800 bg-transparent text-blue-200 py-3 px-6 rounded-lg font-semibold transition-all hover:bg-blue-900/30"
           >
             {texts[language].contact}
           </motion.a>

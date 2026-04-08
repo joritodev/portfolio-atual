@@ -34,7 +34,7 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
         <div className="flex justify-between items-center h-16">
           <a href="#home" className="font-mono text-xl font-bold text-white">
             {" "}
-            joao<span className="text-gray-400">.montenegro</span>{" "}
+            joao<span className="text-blue-400">.montenegro</span>{" "}
           </a>
 
           <div
@@ -75,7 +75,7 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={toggleLanguage}
-              className="ml-4 px-4 py-2 rounded-md border border-white/20 bg-transparent text-white font-semibold shadow hover:bg-white/10 transition-all focus:outline-none"
+              className="ml-4 px-4 py-2 rounded-md border border-blue-800 bg-transparent text-blue-200 font-semibold shadow hover:bg-blue-900/30 transition-all focus:outline-none"
             >
               {texts[language].lang}
             </motion.button>
