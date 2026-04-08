@@ -2,6 +2,7 @@ import { useState } from "react";
 import { RevealOnScroll } from "../RevealOnScroll";
 import emailjs from "@emailjs/browser";
 import { useLanguage } from "../LanguageContext";
+import { motion } from "framer-motion";
 
 export const Contact = () => {
   const { language } = useLanguage();
@@ -143,13 +144,15 @@ export const Contact = () => {
               </div>
             )}
 
-            <button
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               type="submit"
               disabled={isLoading}
-              className="w-full bg-blue-500 text-white py-3 px-6 rounded font-medium transition relative overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-white text-black py-3 px-6 rounded-lg font-semibold transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:bg-gray-200 flex justify-center items-center disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? texts[language].sending : texts[language].send}
-            </button>
+            </motion.button>
           </form>
         </div>
       </RevealOnScroll>

@@ -1,4 +1,4 @@
-import { RevealOnScroll } from "../RevealOnScroll";
+import { motion } from "framer-motion";
 import { useLanguage } from "../LanguageContext";
 
 export const Home = () => {
@@ -17,38 +17,65 @@ export const Home = () => {
       contact: "Contact Me"
     }
   };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1, 
+      transition: { staggerChildren: 0.2, delayChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  };
+
   return (
     <section
       id="home"
       className="min-h-screen flex items-center justify-center relative"
     >
-      <RevealOnScroll>
-        <div className="text-center z-10 px-4">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent leading-tight">
-            {texts[language].title}
-          </h1>
+      <motion.div 
+        className="text-center z-10 px-4"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.h1 
+          variants={itemVariants}
+          className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent leading-tight"
+        >
+          {texts[language].title}
+        </motion.h1>
 
-          <p className="tex-gray-400 text-lg mb-8 max-w-lg mx-auto">
-            {texts[language].desc}
-          </p>
-          <div className="flex justify-center space-x-4">
-            <a
-              href="#projects"
-              className="bg-blue-500 text-white py-3 px-6 rounded font-medium transition relative overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59, 130, 246, 0.4)]"
-            >
-              {texts[language].projects}
-            </a>
+        <motion.p 
+          variants={itemVariants}
+          className="text-gray-400 text-lg mb-8 max-w-lg mx-auto"
+        >
+          {texts[language].desc}
+        </motion.p>
+        
+        <motion.div variants={itemVariants} className="flex justify-center space-x-4">
+          <motion.a
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            href="#projects"
+            className="bg-white text-black py-3 px-6 rounded-lg font-semibold transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:bg-gray-200"
+          >
+            {texts[language].projects}
+          </motion.a>
 
-            <a
-              href="#contact"
-              className="border border-blue-500/50 text-blue-500 py-3 px-6 rounded font-medium transition-all duration-200 
-             hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59, 130, 246, 0.2)] hover:bg-blue-500/10"
-            >
-              {texts[language].contact}
-            </a>
-          </div>
-        </div>
-      </RevealOnScroll>
+          <motion.a
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            href="#contact"
+            className="border border-white/20 bg-transparent text-white py-3 px-6 rounded-lg font-semibold transition-all hover:bg-white/5"
+          >
+            {texts[language].contact}
+          </motion.a>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
